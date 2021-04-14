@@ -28,7 +28,7 @@ optional arguments:
 - FIO
 
 ## Usage
-Run FIO and pop to this script
+Run FIO and pipe to this script
 ```sh
 fio test.fio  --status-interval=1 --minimal | ./fio_to_influxdb.py -ip 10.255.72.95
 
