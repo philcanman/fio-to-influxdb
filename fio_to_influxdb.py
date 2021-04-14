@@ -12,13 +12,13 @@ try:
 except ImportError:
   print("Trying to Install required module: influxdb\n")
   os.system('python3 -m pip install influxdb')
+  time.sleep(5)
 
 import requests
 
 def fioinput(ip, port, database):
     client = influxdb.InfluxDBClient(host=ip, port=8086)
-    
-    
+        
     try:
         client.ping()
         client.create_database(database)
@@ -29,7 +29,7 @@ def fioinput(ip, port, database):
             \nKilling the fio session as well.\
             \n")
         os.system('pkill fio')
-        sys.exit
+        quit()
 
     for line in sys.stdin:
         fullfio_data = line.split(",")
@@ -108,12 +108,17 @@ def fioinput(ip, port, database):
         else:
             writeblocksize = round((int(writebandwidthio) / int(writeiopsio)) * 1024, 1)
 
+        # Calculate percentage of read vs write IOPS
+        totaliops = int(readiopsio) + int(writeiopsio)
+        readiopspercentage = int(readiopsio) / int(totaliops)
+        writeiopspercentage =  int(writeiopsio) / int(totaliops)
+
         # CPU Usage
         cpuuser = float(fullfio_data[87].strip('%'))
         cpusystem = float(fullfio_data[88].strip('%'))
 
-        # print(cpuuser)
-        # print(cpusystem)
+        # print("Read IOPS % : "+str(readiopspercentage))
+        # print("Write IOPS % : "+str(writeiopspercentage))
 
         current_time = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
         print(current_time+" | Job Name: "+jobname+" | Read IOPS: "+readiopsio+" | Write IOPS: "+writeiopsio+" | Block(read/write): "+str(readblocksize)+" / "+str(writeblocksize), end='\r')
@@ -171,7 +176,9 @@ def fioinput(ip, port, database):
                     "IOdepthdist08": iodepth08,
                     "IOdepthdist16": iodepth16,
                     "IOdepthdist32": iodepth32,
-                    "IOdepthdist64": iodepth64
+                    "IOdepthdist64": iodepth64,
+                    "Read_IOPS_Percentage": readiopspercentage,
+                    "Write_IOPS_Percentage": writeiopspercentage
                 }
             }
         ]
@@ -181,14 +188,6 @@ def fioinput(ip, port, database):
         
 
 def main():
-    # helptext = \
-    #     "\nThe following options must be added to the fio command for this script to function\
-    #     \n\t--status-interval=1\
-    #     \n\t--minimal\n\
-    #     \nExample usage:\n\
-    #     fio instructionfile.fio --status-interval=1 --minimal | fio_to_influxdb.py\n"
-
-    # print(helptext)
     parser = argparse.ArgumentParser(
       prog='fio_to_influxdb',
       formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -215,5 +214,7 @@ def main():
             )
 
     fioinput(args.ip, args.port, args.database)
+
+    print("\n\nJob complete\n")
 
 main()
