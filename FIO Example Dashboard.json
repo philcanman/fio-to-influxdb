@@ -65,7 +65,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1618257031745,
+  "iteration": 1618416872844,
   "links": [],
   "panels": [
     {
@@ -81,7 +81,10 @@
       "type": "row"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Read IOPS": "dark-blue",
+        "Write IOPS": "dark-purple"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -256,7 +259,10 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Read Bandwidth": "dark-blue",
+        "Write Bandwidth": "dark-purple"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -278,10 +284,12 @@
       "hiddenSeries": false,
       "id": 3,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
@@ -433,7 +441,10 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Read Latency": "rgb(62, 145, 230)",
+        "Write Latency": "rgb(234, 57, 192)"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -917,7 +928,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 19,
         "w": 12,
         "x": 12,
         "y": 18
@@ -1619,149 +1630,6 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "mappings": [
-            {
-              "$$hashKey": "object:1625",
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "light-purple",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 28
-      },
-      "id": 7,
-      "links": [],
-      "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "7.5.3",
-      "targets": [
-        {
-          "alias": "Read IOPS",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "linear"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "FIO",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "Read_IOPS"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "runId",
-              "operator": "=~",
-              "value": "/^$Job$/"
-            }
-          ]
-        },
-        {
-          "alias": "Write IOPS",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "linear"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "FIO",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "Write_IOPS"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "runId",
-              "operator": "=~",
-              "value": "/^$Job$/"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "IOPS",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -1777,7 +1645,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 4,
         "w": 12,
         "x": 0,
         "y": 33
@@ -1914,8 +1782,8 @@
       "gridPos": {
         "h": 5,
         "w": 12,
-        "x": 12,
-        "y": 33
+        "x": 0,
+        "y": 37
       },
       "id": 10,
       "options": {
@@ -2024,6 +1892,149 @@
       "timeShift": null,
       "title": "CPU  Utilization",
       "type": "bargauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "$$hashKey": "object:1625",
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 37
+      },
+      "id": 7,
+      "links": [],
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.3",
+      "targets": [
+        {
+          "alias": "Read IOPS",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "FIO",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "Read_IOPS"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "runId",
+              "operator": "=~",
+              "value": "/^$Job$/"
+            }
+          ]
+        },
+        {
+          "alias": "Write IOPS",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "FIO",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "Write_IOPS"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "runId",
+              "operator": "=~",
+              "value": "/^$Job$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "IOPS",
+      "type": "gauge"
     }
   ],
   "refresh": "1s",
@@ -2074,5 +2085,5 @@
   "timezone": "",
   "title": "FIO Example Dashboard",
   "uid": "LvDSd3_Gz",
-  "version": 20
+  "version": 21
 }
