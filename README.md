@@ -22,12 +22,12 @@ optional arguments:
  fio instructionfile.fio --status-interval=1 --minimal | fio_to_influxdb.py
 ```
 
-##Requirements
+## Requirements
 - Python 3
 - InfluxDB installed and running (reachable via network or local)
 - FIO
 
-##Usage
+## Usage
 Run FIO and pop to this script
 ```sh
 fio test.fio  --status-interval=1 --minimal | ./fio_to_influxdb.py -ip 10.255.72.95
