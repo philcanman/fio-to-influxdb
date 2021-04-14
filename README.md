@@ -22,3 +22,26 @@ optional arguments:
  fio instructionfile.fio --status-interval=1 --minimal | fio_to_influxdb.py
 ```
 
+##Requirements
+- Python 3
+- InfluxDB installed and running (reachable via network or local)
+- FIO
+
+##Usage
+Run FIO and pop to this script
+```sh
+fio test.fio  --status-interval=1 --minimal | ./fio_to_influxdb.py -ip 10.255.72.95
+
+Connecting to influx database with the following parameters
+                IP/DNS:   10.255.72.95
+                Port:     8086
+                Database: fio
+            
+2021-04-14T15:49:24Z | Job Name: PythonTest02 | Read IOPS: 2628 | Write IOPS: 325 | Block(read/write): 1024.0 / 6.3
+
+Job complete
+
+```
+
+
+
