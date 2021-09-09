@@ -31,6 +31,7 @@ def fioinput(ip, port, database):
         os.system('pkill fio')
         quit()
 
+    # minimal format found here: https://www.andypeace.com/fio_minimal.html
     for line in sys.stdin:
         fullfio_data = line.split(",")
         fullfio_data = fullfio_data[0].split(";")
@@ -88,6 +89,7 @@ def fioinput(ip, port, database):
         wrtotalmean = int(float(fullfio_data[80]))
         wrtotaldeviation = int(float(fullfio_data[81]))
 
+        # IO depth distribution
         iodepth01 = float(fullfio_data[92].strip('%'))
         iodepth02 = float(fullfio_data[93].strip('%'))
         iodepth04 = float(fullfio_data[94].strip('%'))
