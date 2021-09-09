@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB",
-      "label": "InfluxDB",
+      "name": "DS_INFLUXDB-1-FIO",
+      "label": "InfluxDB-1-FIO",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -26,12 +26,12 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.5.3"
+      "version": "8.0.6"
     },
     {
       "type": "panel",
       "id": "graph",
-      "name": "Graph",
+      "name": "Graph (old)",
       "version": ""
     },
     {
@@ -65,11 +65,12 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1618416872844,
+  "iteration": 1631208069208,
   "links": [],
   "panels": [
     {
-      "datasource": null,
+      "collapsed": false,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -77,6 +78,7 @@
         "y": 0
       },
       "id": 13,
+      "panels": [],
       "title": "$Job Overview",
       "type": "row"
     },
@@ -88,7 +90,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "links": []
@@ -121,7 +123,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -266,7 +268,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "links": []
@@ -301,7 +303,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -448,7 +450,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "links": []
@@ -481,7 +483,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -621,7 +623,7 @@
       }
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -660,7 +662,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Read Total I/O",
@@ -756,7 +758,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -765,14 +767,17 @@
           },
           "mappings": [
             {
-              "$$hashKey": "object:1625",
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
+          "max": 1,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -807,7 +812,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Read IOPS",
@@ -903,7 +908,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -948,7 +953,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "IO Depth <=1",
@@ -1214,7 +1219,7 @@
           ]
         },
         {
-          "alias": "IO Depth 64",
+          "alias": "IO Depth >= 64",
           "groupBy": [
             {
               "params": [
@@ -1264,7 +1269,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -1307,7 +1312,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Read Latency Submission",
@@ -1445,7 +1450,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -1488,7 +1493,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Write Latency Submission",
@@ -1627,7 +1632,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -1667,7 +1672,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Read Block Size",
@@ -1762,10 +1767,12 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
+          "max": 100,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1799,7 +1806,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "CPU System",
@@ -1895,17 +1902,18 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB-1-FIO}",
       "fieldConfig": {
         "defaults": {
           "mappings": [
             {
-              "$$hashKey": "object:1625",
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
           "thresholds": {
@@ -1942,7 +1950,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "Read IOPS",
@@ -2037,8 +2045,8 @@
       "type": "gauge"
     }
   ],
-  "refresh": "1s",
-  "schemaVersion": 27,
+  "refresh": "5s",
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2046,8 +2054,8 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_INFLUXDB}",
-        "definition": "SHOW TAG VALUES FROM \"fio\".\"autogen\".\"FIO\" WITH KEY = \"runId\"",
+        "datasource": "${DS_INFLUXDB-1-FIO}",
+        "definition": "SHOW TAG VALUES FROM \"fio\".\"default\".\"FIO\" WITH KEY = \"runId\"",
         "description": null,
         "error": null,
         "hide": 0,
@@ -2056,13 +2064,12 @@
         "multi": false,
         "name": "Job",
         "options": [],
-        "query": "SHOW TAG VALUES FROM \"fio\".\"autogen\".\"FIO\" WITH KEY = \"runId\"",
+        "query": "SHOW TAG VALUES FROM \"fio\".\"default\".\"FIO\" WITH KEY = \"runId\"",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -2070,20 +2077,19 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
-    "nowDelay": "",
+    "nowDelay": "1m",
     "refresh_intervals": [
-      "1s",
       "5s",
       "10s",
       "30s"
     ]
   },
   "timezone": "",
-  "title": "FIO Example Dashboard",
+  "title": "FIO  Dashboard",
   "uid": "LvDSd3_Gz",
-  "version": 21
+  "version": 13
 }
