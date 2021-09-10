@@ -6,6 +6,7 @@ import time
 from datetime import datetime
 import textwrap
 import argparse
+import platform
 
 try:
   import influxdb
@@ -16,7 +17,7 @@ except ImportError:
 
 import requests
 
-def fioinput(ip, port, database):
+def fioinput(ip, port, database, hostname):
     client = influxdb.InfluxDBClient(host=ip, port=8086)
         
     try:
@@ -132,7 +133,8 @@ def fioinput(ip, port, database):
             {
                 "measurement": "FIO",
                 "tags": {
-                    "runId": jobname
+                    "runId": jobname,
+                    "hostname": hostname
                 },
                 "time": current_time,
                 "fields": {
@@ -215,7 +217,10 @@ def main():
             "
             )
 
-    fioinput(args.ip, args.port, args.database)
+    # Get OS host name
+    hostname = platform.uname()[1]
+
+    fioinput(args.ip, args.port, args.database, hostname)
 
     print("\n\nJob complete\n")
 
