@@ -15,8 +15,6 @@ except ImportError:
   os.system('python3 -m pip install influxdb')
   time.sleep(5)
 
-import requests
-
 def fioinput(ip, port, database, hostname):
     client = influxdb.InfluxDBClient(host=ip, port=8086)
         
