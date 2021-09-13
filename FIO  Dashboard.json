@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.0.6"
+      "version": "8.1.3"
     },
     {
       "type": "panel",
@@ -57,6 +57,12 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
@@ -65,7 +71,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1631208069208,
+  "iteration": 1631538201321,
   "links": [],
   "panels": [
     {
@@ -123,7 +129,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -143,7 +149,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -163,7 +169,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -172,6 +178,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -186,7 +198,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -206,7 +218,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -215,6 +227,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -303,7 +321,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -323,7 +341,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -343,7 +361,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -366,7 +384,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -386,7 +404,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -483,7 +501,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -503,7 +521,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -532,6 +550,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -546,7 +570,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -575,6 +599,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -662,7 +692,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Read Total I/O",
@@ -695,7 +725,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -738,7 +768,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -812,7 +842,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Read IOPS",
@@ -854,6 +884,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -897,6 +933,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -953,7 +995,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "IO Depth <=1",
@@ -995,6 +1037,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1039,6 +1087,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1083,6 +1137,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1127,6 +1187,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1171,6 +1237,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1215,6 +1287,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1259,6 +1337,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -1312,7 +1396,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Read Latency Submission",
@@ -1354,6 +1438,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1397,6 +1487,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1440,6 +1536,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -1493,7 +1595,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Write Latency Submission",
@@ -1672,7 +1774,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Read Block Size",
@@ -1685,7 +1787,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -1714,6 +1816,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1728,7 +1836,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -1757,6 +1865,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -1806,7 +1920,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "CPU System",
@@ -1819,7 +1933,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -1848,6 +1962,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -1862,7 +1982,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -1891,6 +2011,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -1950,7 +2076,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.1.3",
       "targets": [
         {
           "alias": "Read IOPS",
@@ -1963,7 +2089,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -1983,7 +2109,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -1992,6 +2118,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         },
@@ -2006,7 +2138,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -2026,7 +2158,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
@@ -2035,6 +2167,12 @@
               "key": "runId",
               "operator": "=~",
               "value": "/^$Job$/"
+            },
+            {
+              "condition": "AND",
+              "key": "hostname",
+              "operator": "=~",
+              "value": "/^$hostname$/"
             }
           ]
         }
@@ -2073,15 +2211,35 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_INFLUXDB-1-FIO}",
+        "definition": "SHOW TAG VALUES WITH KEY = \"hostname\" WHERE \"runId\" =~ /^$Job$/",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "hostname",
+        "options": [],
+        "query": "SHOW TAG VALUES WITH KEY = \"hostname\" WHERE \"runId\" =~ /^$Job$/",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-3h",
-    "to": "now"
+    "from": "now-5m",
+    "to": "now-1m"
   },
   "timepicker": {
-    "nowDelay": "1m",
+    "nowDelay": "20s",
     "refresh_intervals": [
       "5s",
       "10s",
@@ -2091,5 +2249,5 @@
   "timezone": "",
   "title": "FIO  Dashboard",
   "uid": "LvDSd3_Gz",
-  "version": 13
+  "version": 45
 }
